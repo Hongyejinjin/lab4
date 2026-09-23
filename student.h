@@ -31,6 +31,13 @@ namespace hongyejin2649058
             }
 
     public:
+    //constructor: 모든 멤버변수 초기화, 기본값 설정, test함수들 호출
+        student(int d = 1234567, int s = 0, char g = 'F')
+            :id{d}, score{s}, grade{g}
+        {
+            testId(); testScore(); testGrade();
+        }
+        
         void input()
         {
             std::cout << "Enter id: ";
@@ -46,10 +53,11 @@ namespace hongyejin2649058
         void setId(int d) {id = d; testId();}
         void setScore(int s) {score = s; testScore();}
         void setGrade(char g) {grade = g; testGrade();}
-        void print() {std::cout << id << ", " << score << ", " << grade << "\n";}
-        int getId() {return id;}
-        int getScore() {return score;}
-        char getGrade() {return grade;}
+        //const 멤버함수
+        void print() const {std::cout << id << ", " << score << ", " << grade << "\n";}
+        int getId() const {return id;}
+        int getScore() const {return score;}
+        char getGrade() const {return grade;}
     };
 }
 
